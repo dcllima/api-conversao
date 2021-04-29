@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: meupod
+spec: 
+  containers: 
+     - name: teste
+       image: kubedevio/nginx-color:blue
+       ports:
+         - containerPort: 80 
+          
