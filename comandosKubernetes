@@ -53,3 +53,11 @@ kubectl api-resources --lista as apis do kubernetes
  kubectl get all -- lista tudo 
 
  kubectl delete -f .\api-conversao\service.yaml 
+
+ kubectl apply -f diretorio  -R roda recursivo nas subpastas
+
+ kubectl top pods -- tem que ter o metrics server instalado. Verifica qtd de recurso usado nos pods
+
+ kubectl get hpa --- auto scale automático
+
+ kubectl delete -f .\k8s\ -R --- delete recursivo
