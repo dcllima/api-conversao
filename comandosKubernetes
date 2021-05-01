@@ -12,6 +12,9 @@ k3d cluster create meucluster --servers 3 --agents 3 -- criar cluster kubernetes
 
 k3d cluster create meucluster --servers 3 --agents 3  -p "8080:30000@loadbalancer" 
 --- Faz o bind de porta para loadbalancer
+
+kubectl config use-context k3d-meucluster
+kubectl cluster-info
 --------------------------------------------------------------------------------------------
 Kubernetes
 
