@@ -13,8 +13,6 @@ k3d cluster create meucluster --servers 3 --agents 3 -- criar cluster kubernetes
 k3d cluster create meucluster --servers 3 --agents 3  -p "8080:30000@loadbalancer" 
 --- Faz o bind de porta para loadbalancer
 
-kubectl config use-context k3d-meucluster
-kubectl cluster-info
 --------------------------------------------------------------------------------------------
 Kubernetes
 
@@ -64,4 +62,17 @@ kubectl api-resources --lista as apis do kubernetes
  kubectl get hpa --- auto scale automático
 
  kubectl delete -f .\k8s\ -R --- delete recursivo
+
+kubectl config use-context k3d-meucluster
+kubectl cluster-info
+kubectl create namespace ingestion -- criar namespace
+
+kubectl get pods -n ingestion --- filtra pelo namespace
+ ----------------------------------------------------
+
+ Helm
+
+ helm repo add strimzi https://strimzi.io/charts/
+
+ helm install kafka strimzi/strimzi-kafka-operator --namespace ingestion --version 0.21.0
 
