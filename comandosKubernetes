@@ -76,3 +76,7 @@ kubectl get pods -n ingestion --- filtra pelo namespace
 
  helm install kafka strimzi/strimzi-kafka-operator --namespace ingestion --version 0.21.0
 
+ helm list --namespace ingestion
+
+ helm delete kafka -n ingestion
+
