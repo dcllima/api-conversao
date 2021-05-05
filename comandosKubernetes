@@ -68,6 +68,10 @@ kubectl cluster-info
 kubectl create namespace ingestion -- criar namespace
 
 kubectl get pods -n ingestion --- filtra pelo namespace
+
+kubectl exec -it --namespace=ingestion edh-kafka-0 -- bash
+
+kubectl logs -f edh-kafka-0 -n ingestion
  ----------------------------------------------------
 
  Helm
