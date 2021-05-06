@@ -72,6 +72,16 @@ kubectl get pods -n ingestion --- filtra pelo namespace
 kubectl exec -it --namespace=ingestion edh-kafka-0 -- bash
 
 kubectl logs -f edh-kafka-0 -n ingestion
+
+kubectl create secret generic mssql --from-literal=SA_PASSWORD="Password@123" --- criar segredo 
+
+kubectl get pods -n confluent --watch --assistir criação
+
+kubectl exec -c kafka-client -it kafka-client -- bin/bash
+
+kubectl exec -c cp-kafka-broker -it confluent-cp-kafka-0  -- bin/bash 
+
+kubectl exec -n confluent -c cp-kafka-broker -it confluent-cp-kafka-0  -- bin/bash  -- acessar node
  ----------------------------------------------------
 
  Helm
@@ -83,4 +93,10 @@ kubectl logs -f edh-kafka-0 -n ingestion
  helm list --namespace ingestion
 
  helm delete kafka -n ingestion
+
+ helm upgrade confluent  confluentinc/cp-helm-charts -f .\k8s\confluent\confluent_values_5.5.0.yaml 
+ --namespace confluent  --set serviceName="confluent" --set cp-control-center.enabled=true --set cp-kafka.brokers=7
+
+ 
+--------------------------------------------
 
