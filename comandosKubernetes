@@ -77,7 +77,7 @@ kubectl create secret generic mssql --from-literal=SA_PASSWORD="Password@123" --
 
 kubectl get pods -n confluent --watch --assistir criação
 
-kubectl exec -c kafka-client -it kafka-client -- bin/bash
+kubectl exec -n confluent -c kafka-client -it kafka-client -- bash
 
 kubectl exec -c cp-kafka-broker -it confluent-cp-kafka-0  -- bin/bash 
 
